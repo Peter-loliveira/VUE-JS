@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Templates VueJS</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <span>Texto dinâmico:</span>
+      <input type="text" v-on:input="alteraTitulo" />
+      <h2>{{ titulo }}</h2>
+      <br>
+      <span>Texto por Metodo:</span>
+      <h2>{{ saudacao() }}</h2>
+      <br />
+      <span>Somar:</span>
+      <button v-on:click = 'soma += 1'>Adiciona 1 ao valor abaixo</button>
+      <h2>{{ soma }}</h2>
+    </div>
+  </body>
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        titulo: "O Texto digitado acima será usado aqui!",
+        soma: 0,
+      },
+      methods: {
+        alteraTitulo(event) { //Onome do parametro 'event' pode ser substituido por uma string a sua escolha
+          if (event.target.value == "") {
+            this.titulo = "O Texto digitado acima será usado aqui!";
+          } else {
+            this.titulo = event.target.value;
+          }
+        },
+        saudacao(){
+          return 'Boa Semana!'
+        }
+      },
+    });
+  </script>
+</html>
