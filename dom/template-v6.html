@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Templates VueJS</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <span>Texto dinâmico:</span>
+      <input type="text" v-on:input="alteraTitulo" />
+      <h2 v-once>{{ titulo }}</h2>
+      <hr>
+
+      <span>Texto por Metodo:</span>
+      <h2> 
+       {{ saudacao() }}
+      </h2>
+      <hr>
+
+      <h2>
+        E o valor da soma: {{ soma }}
+      </h2>
+      <hr>
+      <span>Link:</span>
+      <!-- Aqui será usada a propriedade v-bind, do tipo hreef -->
+      <a v-bind:href="link"><h2>Google</h2></a>
+      <hr>
+
+      <h2 v-html='linkHtml'></h2>
+
+    </div>
+  </body>
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        titulo: "O Texto digitado acima será usado aqui!",
+        soma: 0,
+        link: 'https://www.google.com.br/',
+        linkHtml: '<a href="https://www.google.com.br/">Google</a>',
+      },
+      methods: {
+        alteraTitulo(event) { //Onome do parametro 'event' pode ser substituido por uma string a sua escolha
+          if (event.target.value == "") {
+            this.titulo = "O Texto digitado acima será usado aqui!";
+          } else {
+            this.titulo = event.target.value;
+          }
+        },
+        saudacao(){
+          this.titulo = 'Bom Dia!'
+          return this.titulo
+        }
+      },
+    });
+  </script>
+</html>
