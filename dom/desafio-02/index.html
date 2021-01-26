@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div id="desafio" class="text-center">
+      <!-- 1) Exiba um alert quando o botão for clicado -->
+      <div >
+        <button v-on:click = exibirAlerta class="btn btn-primary m-5">Exibir Alerta</button>
+      </div>
+
+      <!-- 2) Escute o evento "keyup" e armazene o valor na propriedade
+            data (dica: event.target.value) -->
+      <div>
+        <input type="text" v-on:keyup = 'valor = $event.target.value' />
+        <p>{{ valor }}</p>
+      </div>
+
+      <!-- 3) Ajuste o exemplo 2 para disparar o evento "keydown" somente
+            quando a tecla for ENTER -->
+      <div>
+        <input type="text" v-on:keyup.enter = 'teclaEnterPressionada'/>
+        <p>{{ valor }}</p>
+      </div>
+    </div>
+  </body>
+  <script src="app.js"></script>
+</html>
