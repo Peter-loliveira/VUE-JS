@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sintaxe Reduzida VueJS</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app" class="text-center">
+      <h1>SOMA:</h1>
+      <!-- É possivel substituir o v-on: por @ -->
+      <button v-on:click = 'somar' class="btn btn-primary">Somar</button>
+      <h2>{{ soma }}</h2>
+      <!-- É possivel substituir o v-bind: apenas por : -->
+      <input type="text" :value = 'soma'>
+    </div>
+  </body>
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        
+        soma: 0,
+      },
+      methods: {
+       somar() {
+         this.soma++
+       }
+      },
+    });
+  </script>
+</html>

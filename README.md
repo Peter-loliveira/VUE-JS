@@ -43,5 +43,12 @@ Eventos V: Eventos
 <p>
 Eventos V: Eventos 
 </p>
+<h4>
+Sintaxes reduzidas:
+<p>
+v-on: = @ | v-on:click = @click
+v-bind: = : | v.bind:value = :value
+</p>
+</h4>
 
 
