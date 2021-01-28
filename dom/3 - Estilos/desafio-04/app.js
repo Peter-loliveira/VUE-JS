@@ -36,7 +36,7 @@ new Vue({
 				valor++
 				this.tamanho = valor + '%'
 				if (valor == 100) clearInterval(temporizador)
-			}, 50);
+			}, 50); 
 		}
 	}
 })
