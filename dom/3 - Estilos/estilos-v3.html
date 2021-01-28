@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Estilos personalizados - V3</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  </head>
+  <style>
+    .caixas {
+      display: flex;
+      justify-content: space-around;
+    }
+    .demo {
+      background-color: gray;
+      width: 100px;
+      height: 100px;
+    }
+    .c1 {
+      background-color: red;
+    }
+    .c2 {
+      background-color: green;
+    }
+    .c3 {
+      background-color: blue;
+    }
+    .girar {
+      transform: rotate(45deg);
+    }
+    .girar2 {
+      transform: rotate(65deg);
+    }
+  </style>
+  <body>
+    <div id="app">
+      <div class="caixas">
+        <div class="demo"
+            :class="estilo01"
+            @click="aplicarC1 = !aplicarC1"
+        ></div>
+        <div class="demo"
+            :class="{c2: aplicarC2}"
+            @click="aplicarC2 = !aplicarC2"
+        ></div>
+        <div  class="demo"
+            :class="[classeCSS]"
+            @click="aplicarC3 = !aplicarC3"
+        ></div>
+      </div>
+      <hr />
+      <input type="text" v-model="classeCSS" />
+    </div>
+  </body>
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        aplicarC1: false,
+        aplicarC2: false,
+        aplicarC3: false,
+        classeCSS: "",
+      },
+      computed: {
+        estilo01() {
+          return {
+            c1: this.aplicarC1,
+            c2: !this.aplicarC1,
+          };
+        },
+      },
+    });
+  </script>
+</html>

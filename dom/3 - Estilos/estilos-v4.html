@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Estilos personalizados - V4</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  </head>
+  <style>
+    .caixas {
+      display: flex;
+      justify-content: space-around;
+    }
+    .demo {
+      background-color: gray;
+      width: 100px;
+      height: 100px;
+    }
+    .c1 {
+      background-color: red;
+    }
+    .c2 {
+      background-color: green;
+    }
+    .c3 {
+      background-color: blue;
+    }
+    .girar {
+      transform: rotate(45deg);
+    }
+    .girar2 {
+      transform: rotate(65deg);
+    }
+  </style>
+  <body>
+    <div id="app">
+      <div class="caixas">
+        <!-- Notações possiveis para as propriedades CSS no JS -->
+        <!-- Entre aspas: variando entre aspas eimples e duplas -->
+        <div class="demo" :style = '{"background-color" : cor}'></div>
+        <!-- CamelCase, sem a necessidade de estar entre aspas -->
+        <div class="demo" :style = '{backgroundColor : cor2}'></div>
+        <!-- propriedade semelante, sem a necessidade de estar entre aspas -->
+        <div  class="demo" :style = '[meuEstilo]'></div>
+      </div>
+      <hr />
+      <span>Quadro 1:</span>
+      <input type="text" v-model="cor" />
+      <span>Quadro 2:</span>
+      <input type="text" v-model="cor2" />
+      <span>Quadro 3:</span>
+      <input type="text" v-model="cor3" />
+      <hr>
+      <span>Largura:</span>
+      <input type="number" v-model = 'largura'>
+
+    </div>
+  </body>
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        cor: 'red',
+        cor2: 'green',
+        cor3: 'pink',
+        largura: 100,
+        altura: this.largura
+      },
+      computed: {
+        meuEstilo() {
+          return {
+            backgroundColor: this.cor,
+            width: this.largura + 'px',
+            height: this.largura + 'px'
+          }
+        }
+      },
+    });
+  </script>
+</html>
