@@ -25,25 +25,18 @@ new Vue({
 				this.classe1 = this.classe1 == 'destaque' ? 'encolher' : 'destaque'
 			}, 500);
 		},
+
 		aplicaEstilo(evento) {
-			console.log('TESTES');
-			// if(evento.target.value == 'true'){
-			// 	this.classeBoleana = 'bordas'
-			// } else {
-			// 	this.classeBoleana = ''
-			// }
 			evento.target.value == 'true' ? this.classeBoleana = 'bordas' : this.classeBoleana = ''
 		},
+
 		iniciarProgresso() {
-			let progress = 0
-			setTimeout(() => {
-				progress++
-				console.log(progress);
-				// this.tamanho = `${progress}%`
-				// if (progress == 100) {
-				// 	clearInterval(progress)
-				// }
-			}, 200);
+			let valor = 0;
+			const temporizador = setInterval(() => {
+				valor++
+				this.tamanho = valor + '%'
+				if (valor == 100) clearInterval(temporizador)
+			}, 50);
 		}
 	}
 })
