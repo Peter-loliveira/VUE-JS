@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VusJS - Condicionais</title>
+    <script src="https://unpkg.com/vue"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+  </head>
+  <style>
+    #app {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    button {
+      width: 150px;
+    }
+  </style>
+  <body>
+    <div id="app" class="p-3 text-center">
+      <h4 v-if="logado">Usuário Logado: {{ nome }}</h4>
+      <h4 v-else-if="anonimo">Navegando como Anônimo</h4>
+      <h4 v-else>Nenhum Usuario Logado</h4>
+      <button @click="logado = !logado" class="btn btn-warning">
+        {{ logado ? 'Sair' : 'Entrar' }}
+      </button>
+      <hr />
+      <div>
+        <input type="checkbox" v-model="anonimo" />
+        <p>Navegação anonima</p>
+      </div>
+    </div>
+  </body>
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        nome: "Peter",
+        logado: false,
+        anonimo: true,
+      },
+    });
+  </script>
+</html>
