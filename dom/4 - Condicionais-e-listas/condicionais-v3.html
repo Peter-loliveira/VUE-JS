@@ -24,17 +24,20 @@
   </style>
   <body>
     <div id="app" class="p-3 text-center">
-      <h4 v-if="logado">Usuário Logado: {{ nome }}</h4>
+      <template v-if="logado">
+        <h4>Usuário Logado: {{ nome }}</h4>
+        <h5>Perfim: ADMIM</h5>
+      </template>
       <h4 v-else-if="anonimo">Navegando como Anônimo</h4>
       <h4 v-else>Nenhum Usuario Logado</h4>
       <button @click="logado = !logado" class="btn btn-warning">
         {{ logado ? 'Sair' : 'Entrar' }}
       </button>
       <div>
-          <hr />
-          <input type="checkbox" v-model="anonimo" />
-          <p>Navegação anonima</p>
-        </div>
+        <hr />
+        <input type="checkbox" v-model="anonimo" />
+        <p>Navegação anonima</p>
+      </div>
     </div>
   </body>
   <script>
