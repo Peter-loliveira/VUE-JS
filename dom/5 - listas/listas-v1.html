@@ -21,17 +21,12 @@
     button{
         width: 150px;
     }
-
-    ul {
-        list-style: none;
-    }
     
 </style>
 <body>
     <div id="app" class="p-3">
         <ul>
-            <li v-for = '(cor, indice) in cores'>Cor nr {{indice +1}}: {{ cor }}</li>
-            
+            <li v-for = 'cor in cores'>{{ cor }}</li>
         </ul>
         <ul>
     </div>
