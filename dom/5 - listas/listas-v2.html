@@ -21,18 +21,44 @@
     button{
         width: 150px;
     }
+
     ul {
         list-style: none;
     }
+
+    h5{
+        display: inline;
+    }
+
     
 </style>
 <body>
     <div id="app" class="p-3 text-center">
+        <h3>Acessando as cores e seus indices na lista</h3>
         <ul>
             <li v-for = '(cor, indice) in cores'>{{indice +1}}) {{ cor }}</li>
         </ul>
+        <hr>
+        
+        <h3>Acessando a lista de objetos e suas propriedades </h3>
         <ul>
             <li v-for = 'pessoa in pessoas'>{{ pessoa.nome }} tem {{ pessoa.idade }} anos e pesa {{ pessoa.peso }} </li>
+        </ul>
+        <hr>
+        
+        <template v-for = '(cor, indice) in cores'>
+            <h1>{{ cor }}</h1>
+            <p>{{ indice + 1}}</p>
+        </template>
+        
+        <hr>
+        
+        <h3>Acessando a lista de objetos seus elementos </h3>
+        <ul v-for = 'pessoa in pessoas'>
+            <li v-for = '(dados, chave, indice) in pessoa'>
+                <h5>Elemento {{ indice + 1 }} - {{ chave }}: {{ dados }}</h5>
+
+            </li>
             
         </ul>
         
