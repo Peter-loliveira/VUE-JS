@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VusJS - Condicionais</title>
+    <script src="https://unpkg.com/vue"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+</head>
+<style>
+    #app {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    button{
+        width: 150px;
+    }
+    
+</style>
+<body>
+    <div id="app" class="p-3 text-center">
+        <ul>
+            <li v-for = 'cor in cores'>{{ cor }}</li>
+            
+        </ul>
+        <ul>
+            <li v-for = 'pessoa in pessoas'>{{ pessoa.nome }} tem {{ pessoa.idade }} anos e pesa {{ pessoa.peso }} </li>
+            
+        </ul>
+        
+    </div>
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+             cores: ['Verde', 'Vermelho', 'Azul', 'Amarelo', 'Preto'],
+             pessoas: [
+                 {nome: 'Peter', idade: 45, peso: 75},
+                 {nome: 'Bruno', idade: 43, peso: 82},
+                 {nome: 'Peter', idade: 72, peso: 70},
+                 {nome: 'Ray', idade: 50, peso: 59},
+
+             ]
+        },
+    })
+</script>
+</html>
