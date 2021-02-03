@@ -1,40 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projeto 01 - Matador de Mosntro</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
     <script src="https://unpkg.com/vue"></script>
-</head>
-<body>
+  </head>
+  <body>
     <div id="app">
-        <div class="panel head p-3">
-            <div class="dados text-center">
-                <h3>Jogador</h3>
-                <div class="barra"></div>
-                <h6>Vida: {{ vidaJ }}%</h6>
-            </div>
-            <div div class="dados text-center">
-                <h3>Monstro</h3>
-                <div class="barra"></div>
-                <h6>Vida: {{ vidaM }}%</h6>
-            </div>
+      <div class="panel head">
+        <div class="dados text-center">
+          <h3>Jogador</h3>
+          <div class="barra">
+            <div
+              :style='[ barraJ, {width : vidaJ + "%"}]'
+              class="barraGreen"
+              :class="{barraDanger: vidaJ < 20}"
+            ></div>
+          </div>
+          <h6>Vida: {{ vidaJ }}%</h6>
         </div>
-        <hr>
+        <div class="dados text-center">
+          <h3>Monstro</h3>
+          <div class="barra">
+            <div
+              :style='[ barraM, {width : vidaM + "%"}]'
+              class="barraGreen"
+              :class="{barraDanger: vidaM < 20}"
+            ></div>
+          </div>
+          <h6>Vida: {{ vidaM }}%</h6>
+        </div>
+      </div>
 
-        <div class="buttons">
-            <button v-if = '!starter' @click = 'starter = !starter' class="btn btn-primary text-uppercase">iniciar Jogo</button>
+      <div v-if="vidaJ == 0 || vidaM == 0" class="panel result text-center">
+        <h1 v-if="vidaJ == 0">VOCÊ VENCEU!</h1>
+        <h1 v-else>VOCÊ PERDEU!</h1>
+        <button @click="iniciarJogo" class="btn btn-primary text-uppercase">
+          iniciar Jogo
+        </button>
+      </div>
+
+      <div class="panel buttons" v-else>
+        <button
+          v-if="!starter"
+          @click="starter = !starter"
+          class="btn btn-primary text-uppercase"
+        >
+          iniciar Jogo
+        </button>
+        <div v-else>
+          <button @click="Atacar" class="btn btn-danger">Atacar</button>
+          <button @click="especial" class="btn btn-warning">Ataque especial</button>
+          <button @click="curar" class="btn btn-success">Curar</button>
+          <button @click="iniciarJogo" class="btn btn-secondary">Desistir</button>
         </div>
-        <div v-if = 'starter' class="buttons">
-            <button @click = 'Atacar' class="btn btn-danger">Atacar</button>
-            <button @click = 'especial' class="btn btn-warning">Ataque especial</button>
-            <button @click = 'curar' class="btn btn-success">Curar</button>
-            <button @click = 'desistir' class="btn btn-secondary">Desistir</button>
-        </div>
+      </div>
+
+      <div v-if="logs.length" class="panel logs text-center">
+        <ul>
+          <li v-for="log in logs">{{log}}</li>
+        </ul>
+      </div>
     </div>
-    
-</body>
-<script src="app.js"></script>
+  </body>
+  <script src="app.js"></script>
 </html>
