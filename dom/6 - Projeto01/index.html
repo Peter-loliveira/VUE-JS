@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto 01 - Matador de Mosntro</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="head p-3">
+            <div class="dados text-center">
+                <h3>Jogador</h3>
+                <div class="barra"></div>
+                <h6>Vida: {{ vidaJ }}%</h6>
+            </div>
+            <div div class="dados text-center">
+                <h3>Monstro</h3>
+                <div class="barra"></div>
+                <h6>Vida: {{ vidaM }}%</h6>
+            </div>
+        </div>
+        <hr>
+        <div class="botoes">
+            <button @click = 'Atacar' class="btn btn-danger">Atacar</button>
+            <button @click = 'especial' class="btn btn-warning">Ataque especial</button>
+            <button @click = 'curar' class="btn btn-success">Curar</button>
+            <button @click = 'desistir' class="btn btn-secondary">Desistir</button>
+        </div>
+    </div>
+    
+</body>
+<script src="app.js"></script>
+</html>

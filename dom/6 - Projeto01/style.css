@@ -1,0 +1,22 @@
+.head {
+    display: flex;
+    justify-content: space-around;
+}
+
+.dados{
+    width: 45%;
+    /* border: 1px solid black; */
+    padding: 10px;
+}
+
+.barra {
+    width: 100%;
+    height: 20px;
+    border: 1px solid black;
+    background-color: green;
+}
+.botoes{
+    margin: 0 30%;
+    display: flex;
+    justify-content: space-around;
+}
