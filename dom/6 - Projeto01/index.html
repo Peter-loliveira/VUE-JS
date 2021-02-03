@@ -66,7 +66,7 @@
 
       <div v-if="logs.length" class="panel logs text-center">
         <ul>
-          <li v-for="log in logs">{{log}}</li>
+          <li v-for="log in logs" :class = log.css>{{log.text}} </li>
         </ul>
       </div>
     </div>

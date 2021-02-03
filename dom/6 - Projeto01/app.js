@@ -44,9 +44,9 @@ new Vue({
             let ataqueM = Math.trunc(this.aleartorio(10,1))
             this.vidaJ -= ataqueM
             this.vidaM -= ataqueJ
-            this.registraLog(`O JOGADOR atingio o mostro com ${ataqueJ}`)
+            this.registraLog(`O JOGADOR atingio o mostro com ${ataqueJ} pontos`, 'logJ')
             if(this.vidaM > 0){
-                this.registraLog(`O MONSTRO atingio o JOGADOR com ${ataqueM}`)
+                this.registraLog(`O MONSTRO atingio o JOGADOR com ${ataqueM} pontos`, 'logM')
             }
             this.verificaVida()
         },
@@ -55,9 +55,9 @@ new Vue({
             let ataqueM = Math.trunc(this.aleartorio(10,1))
             this.vidaJ -= ataqueM
             this.vidaM -= ataqueJ
-            this.registraLog(`O JOGADOR atingio o mostro com ${ataqueJ}`)
+            this.registraLog(`O JOGADOR atingio o mostro com um ATAQUE ESPECIAL e retirou ${ataqueJ} pontos`, 'logJ')
             if(this.vidaM > 0){
-                this.registraLog(`O MONSTRO atingio o JOGADOR com ${ataqueM}`)
+                this.registraLog(`O MONSTRO atingio o JOGADOR com ${ataqueM} pontos`, 'logM')
             }
             this.verificaVida()
             
@@ -67,6 +67,7 @@ new Vue({
             let ataque = Math.trunc(this.aleartorio(10,1))
             this.vidaJ += cura
             this.vidaJ -= ataque
+            this.registraLog(`O Jogador se curou um total de ${cura} pontos`, 'logJ')
             this.verificaVida()
         },
         iniciarJogo(){
@@ -75,8 +76,8 @@ new Vue({
             this.starter = !this.starter
             this.logs = []
         },
-        registraLog(text){
-            this.logs.unshift(text)
+        registraLog(text, css){
+            this.logs.unshift({text, css})
         }
 
     },
