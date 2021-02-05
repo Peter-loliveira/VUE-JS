@@ -26,6 +26,15 @@
             ></div>
           </div>
           <h6>Vida: {{ vidaJ }}%</h6>
+          <br>
+          <div class="barraEspecial">
+            <div
+            :style='[ barraJ, {width : ataqueEspecial + "%"}]'
+            class="barraBlue"
+            :class="{barraBlue: vidaJ > 20}"
+            ></div>
+          </div>
+          <h6>Especial: {{ ataqueEspecial }}%</h6>
         </div>
         <div class="dados text-center">
           <h3>Monstro</h3>
@@ -41,8 +50,8 @@
       </div>
 
       <div v-if="vidaJ == 0 || vidaM == 0" class="panel result text-center">
-        <h1 v-if="vidaJ == 0">VOCÊ VENCEU!</h1>
-        <h1 v-else>VOCÊ PERDEU!</h1>
+        <h1 v-if="vidaJ == 0">VOCÊ PERDEU!</h1>
+        <h1 v-else>VOCÊ VENCEU!</h1>
         <button @click="iniciarJogo" class="btn btn-primary text-uppercase">
           iniciar Jogo
         </button>
@@ -58,7 +67,7 @@
         </button>
         <div v-else>
           <button @click="Atacar" class="btn btn-danger">Atacar</button>
-          <button @click="especial" class="btn btn-warning">Ataque especial</button>
+          <button v-if = 'ataqueEspecial == 100' @click="especial" class="btn btn-warning">Ataque especial</button>
           <button @click="curar" class="btn btn-success">Curar</button>
           <button @click="iniciarJogo" class="btn btn-secondary">Desistir</button>
         </div>

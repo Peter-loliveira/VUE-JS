@@ -21,6 +21,12 @@
     border: 1px solid black;
 }
 
+.barraEspecial{
+    width: 100%;
+    height: 20px;
+    border: 1px solid black;
+}
+
 .buttons{
     display: flex;
     justify-content: space-around;
@@ -30,22 +36,26 @@
     background-color: green;
 
 }
+.barraBlue {
+    background-color: DeepSkyBlue;
+
+}
 
 .barraDanger {
     background-color: red;
 }
+
 li{
     list-style: none;
-    background-color: coral;
-    margin-top: 1px;
+    margin: 4PX 0;
 }
 
 .logJ{
-    background-color: gold;
+    background-color: #ffd700aa;
     color: black;
 }
 
 .logM{
-    background-color: orangered;
+    background-color: #ff4500aa;
     color: white;
 }
