@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+    <script src="https://unpkg.com/vue"></script>
+    <title>Componentes no VUE</title>
+  </head>
+
+  <body class="text-center">
+    <div id="app">
+      <h1> {{ titulo }} </h1>
+      <button @click  = 'titulo += "#"' class="btn btn-primary">Anterar {{ titulo }}</button>
+      <button @click  = '$destroy()'class="btn btn-danger">Destruir </button>
+    </div>
+  </body>
+  <script>
+
+    new Vue({
+      el: "#app",
+      data: {
+        titulo: 'Ciclo de Vida do VUE'
+      },
+      beforeCreate(){
+        console.log('Metodo Before Create - Antes da DOM ser criada');
+      },
+      created(){
+        console.log('Metodo Create  - Após a DOM ser criada');
+      },
+      beforeMount(){
+        console.log('Metodo before Mount - Antes da DOM ser Montada na tela');
+      },
+      mounted(){
+        console.log('Metodo Mounted  - Após a DOM ser Montada na tela');
+      },
+      beforeUpdate(){
+        console.clear()
+        console.log('Metodo Before Update - Antes da DOM sofrer alguma modificação');
+      },
+      updated(){
+        console.log('Metodo Updated - Após a DOM sofrer alguma modificação');
+      },
+      beforeDestroy(){
+        console.clear()
+        console.log('Metodo Before Destroy - Antes da instancia VUE ser destruida');
+      },
+      destroyed(){
+        console.log('Metodo Destryed - Após a instancia VUE ser destruida');
+      }
+    });
+  </script>
+</html>
