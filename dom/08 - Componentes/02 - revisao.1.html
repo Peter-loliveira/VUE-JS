@@ -22,9 +22,9 @@
     </div>
     <hr />
     <div id="app2">
-      <contador></contador>
-      <contador></contador>
-      <contador></contador>
+      <app-contador></app-contador>
+      <app-contador></app-contador>
+      <app-contador></app-contador>
     </div>
   </body>
   <script>
@@ -43,7 +43,7 @@
         };
       },
     };
-    //   REGISTRO GLOBAL
+    //   REGISTROS LOCAIS 
       new Vue({
         el: "#app1",
         components: {
@@ -53,6 +53,9 @@
 
     new Vue({
       el: "#app2",
+        components: {
+          'app-contador': contador
+        }
     });
   </script>
 </html>
