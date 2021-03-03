@@ -1,12 +1,7 @@
 <template>
   <div id="app">
-    <h1>Contadores</h1>
     <h3>
-      
-      <app-contador/>
-      <br>
-      <app-counter />
-
+      <app-contadores/>
     </h3>
   </div>
 </template>
