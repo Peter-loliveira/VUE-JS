@@ -7,45 +7,43 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      contador: 0,
-      limite: 10
-    };
-  },
-  methods: {
-    adicionar() {
-        if(this.contador <= this.limite -1)
-      this.contador++;
+  export default {
+    data() {
+      return {
+        contador: 0,
+        limite: 10,
+      };
     },
-    subtrair() {
-      if (
-          this.contador != 0) {
-        this.contador--;
-      }
+    methods: {
+      adicionar() {
+        if (this.contador <= this.limite - 1) this.contador++;
+      },
+      subtrair() {
+        if (this.contador != 0) {
+          this.contador--;
+        }
+      },
     },
-  },
-};
+  };
 </script>
 
-<style>
-.contador {
-  margin-bottom: 5px;
-}
-.contador span {
-  border-bottom: 1px solid #ccc;
-  height: 30px;
-  padding: 5px 25px;
-}
+<style scoped>
+  .contador {
+    margin-bottom: 5px;
+  }
+  span {
+    border-bottom: 1px solid #ccc;
+    height: 30px;
+    padding: 5px 25px;
+  }
 
-.contador button {
-  height: 30px;
-  width: 30px;
-  border-radius: 15px;
-  background-color: coral;
-  color: #fff;
-  margin-left: 10px;
-  outline: none;
-}
+  button {
+    height: 30px;
+    width: 30px;
+    border-radius: 15px;
+    background-color: coral;
+    color: #fff;
+    margin-left: 10px;
+    outline: none;
+  }
 </style>
