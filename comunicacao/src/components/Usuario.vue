@@ -3,6 +3,7 @@
     <h1>Componente Usuário</h1>
     <p>Esse é um componente muito legal!</p>
     <p>O nome original é <strong> {{ nomeLocal }} </strong> </p>
+    <p>E minha idade é de <strong> {{idadeLocal}} </strong></p>
     <button @click="alterarDados">Alterar Dados</button>
     <hr />
     <div class="componentes">
@@ -11,10 +12,14 @@
       <AppUsuarioInfo 
           :nomeInfo = 'nomeLocal' 
           :idadeInfo = 'idadeLocal' 
-          @nomeMudou = 'nomeLocal = $event.nome, idadeLocal = $event.idadeInfo'
+          @eventoInfo = 'nomeLocal = $event.nome, idadeLocal = $event.idade'
           :reiniciaFn = 'reiniciarNome'
           />
-      <AppUsuarioEditar />
+      <AppUsuarioEditar 
+          :nomeEdit = 'nomeLocal' 
+          :idadeEdit = "idadeLocal"
+          @eventoEdit = 'idadeLocal = $event.idade, nomeLocal = $event.nome'
+          />
     </div>
   </div>
 </template>

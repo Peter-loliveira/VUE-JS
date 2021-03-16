@@ -32,7 +32,7 @@ h1, h2, p {
 button {
 	font-size: 1.5rem;
 	padding: 5px 15px;
-	border-radius: 4px;
+	/* border-radius: 4px; */
 	margin: 10px;
 }
 </style>

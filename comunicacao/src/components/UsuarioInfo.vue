@@ -3,7 +3,7 @@
         <h2>As Informações de Usuário</h2>
         <p>Vários detalhes...</p>
         <p>Nome do Usuário: <strong> {{ inverterNome() }} </strong> tem <strong> {{ idadeInfo }} </strong> anos.</p>
-        <button @click = 'reiniciaNome'>Reinicar Dados</button>
+        <button @click = 'reiniciaDados'>Reinicar Dados</button>
         <button @click = 'reiniciaFn'>Reinicar Por Função (Callback)</button>
     </div>
 </template>
@@ -30,12 +30,11 @@ export default {
         inverterNome() {
             return this.nomeInfo.split('').reverse().join('')
         },
-        reiniciaNome() {
-            // this.nomeInfo = 'Peter'
-            this.$emit('nomeMudou', {
+        reiniciaDados() {
+            this.$emit('eventoInfo', {
                 nome: 'peter',
-                idadeInfo: 45})
-        }
+                idade: 45})
+            }
     }
 }
 </script>
