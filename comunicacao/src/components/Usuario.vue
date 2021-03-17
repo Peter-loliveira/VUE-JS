@@ -18,7 +18,6 @@
       <AppUsuarioEditar 
           :nomeEdit = 'nomeLocal' 
           :idadeEdit = "idadeLocal"
-          @eventoEdit = 'idadeLocal = $event.idade, nomeLocal = $event.nome'
           />
     </div>
   </div>
@@ -27,6 +26,7 @@
 <script>
 import AppUsuarioInfo from "./UsuarioInfo";
 import AppUsuarioEditar from "./UsuarioEditar";
+// import barramento from '@/barramento'
 
 export default {
   components: { AppUsuarioInfo, AppUsuarioEditar },
@@ -44,8 +44,14 @@ export default {
     reiniciarNome(){
       this.nomeLocal = 'Peter'
       this.idadeLocal = 45
-    }
+    },
   },
+  created(){
+    // barramento.$on("eventoEdit", (idadeEdit, nomeEdit) => {
+    //   this.idadeLocal = idadeEdit
+    //   this.nomeLocal = nomeEdit
+    // });
+  }
 };
 </script>
 

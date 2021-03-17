@@ -13,6 +13,8 @@
 </template>
 
 <script>
+import barramento from "@/barramento.js";
+
 export default {
   props: {
     nomeEdit: String,
@@ -20,10 +22,9 @@ export default {
   },
   methods: {
     alterarDadosEdit() {
-      this.$emit("eventoEdit", {
-        nome: "Peter",
-        idade: 45,
-      });
+      this.idadeEdit = 95;
+      this.nomeEdit = 'Pina'
+      barramento.alterarIdade(this.idadeEdit);
     },
   },
 };
